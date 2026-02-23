@@ -1,0 +1,5 @@
+.import/
+.export/
+.export.cfg
+*.tmp
+*.import

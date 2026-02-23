@@ -1,0 +1,5 @@
+res://layouts/layout_0.txt
+res://scripts/mj_layout_loader.gd
+res://scenes/world.tscn
+res://scripts/MJMapLoader.gd
+res://scripts/camera_2d.gd

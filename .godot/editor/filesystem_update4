@@ -2,3 +2,6 @@ res://scenes/player.tscn
 res://scenes/world.tscn
 res://scripts/guard.gd
 res://scripts/guard_manager.gd
+res://scripts/player.gd
+res://scenes/guard.tscn
+res://scripts/camera_2d.gd

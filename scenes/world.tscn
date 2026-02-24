@@ -3635,7 +3635,7 @@ layouts = Array[Texture2D]([ExtResource("3_7r4gi"), ExtResource("4_w7kh3"), ExtR
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(-100, -50)
 enabled = false
-zoom = Vector2(2.5, 2.5)
+zoom = Vector2(2, 2)
 script = ExtResource("4_k0juu")
 
 [node name="GameManager" type="Node2D" parent="."]

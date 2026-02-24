@@ -1,4 +1,4 @@
-res://scenes/world.tscn
-res://scripts/game_manager.gd
-res://scenes/player.gd
 res://scenes/player.tscn
+res://scenes/world.tscn
+res://scripts/guard.gd
+res://scripts/guard_manager.gd

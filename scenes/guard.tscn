@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbfpqubyq0hmo"]
+
+[ext_resource type="Script" uid="uid://b07f8kfky0hrq" path="res://scripts/guard.gd" id="1_m4fl1"]
+
+[sub_resource type="Gradient" id="Gradient_ci2qi"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_k0dx2"]
+gradient = SubResource("Gradient_ci2qi")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ygo2t"]
+
+[node name="Guard" type="CharacterBody2D"]
+script = ExtResource("1_m4fl1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -5.9604645e-07)
+scale = Vector2(0.078125015, 19.999998)
+texture = SubResource("GradientTexture1D_k0dx2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ygo2t")

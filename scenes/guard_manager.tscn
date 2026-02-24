@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://x3jqyoc7he8l"]
+
+[ext_resource type="Script" uid="uid://d2kj7oxy6c57d" path="res://scripts/guard_manager.gd" id="1_dnfxx"]
+[ext_resource type="PackedScene" uid="uid://dbfpqubyq0hmo" path="res://scenes/guard.tscn" id="2_hkjva"]
+
+[node name="GuardManager" type="Node2D"]
+script = ExtResource("1_dnfxx")
+guard_scene = ExtResource("2_hkjva")

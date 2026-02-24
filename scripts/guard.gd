@@ -5,7 +5,7 @@ enum State { PATROL, CHASE, RETURN }
 @export var move_speed: float = 90.0
 @export var chase_speed: float = 130.0
 @export var detection_radius: float = 140.0
-@export var catch_radius: float = 18.0
+@export var catch_radius: float = 30
 @export var lose_target_time: float = 1.5
 @export var waypoint_reach_distance: float = 6.0
 

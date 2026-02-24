@@ -259,4 +259,4 @@ position = Vector2(-5.9604645e-08, -1.1920929e-07)
 scale = Vector2(1.359375, 1.359375)
 sprite_frames = SubResource("SpriteFrames_vuaq3")
 animation = &"run_up"
-frame_progress = 0.97716653
+frame_progress = 0.2932898

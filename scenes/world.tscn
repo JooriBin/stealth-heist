@@ -3643,3 +3643,4 @@ script = ExtResource("10_e3hyu")
 player_scene = ExtResource("11_q5onr")
 
 [node name="GuardManager" parent="." instance=ExtResource("12_q5onr")]
+guard_count = 10

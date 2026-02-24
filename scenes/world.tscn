@@ -1,14 +1,16 @@
 [gd_scene format=4 uid="uid://1mojcrh2ojxf"]
 
-[ext_resource type="Texture2D" uid="uid://bijigidtk040l" path="res://assets/Interiors_tilesets.png" id="1_nnsk1"]
+[ext_resource type="Texture2D" uid="uid://dijke3ugn6wf7" path="res://assets/Interiors_tilesets.png" id="1_nnsk1"]
 [ext_resource type="Script" uid="uid://dlijga24c8cbp" path="res://scripts/MJMapLoader.gd" id="2_4wyf3"]
-[ext_resource type="Texture2D" uid="uid://ddyym2n84o44l" path="res://layouts/BasicDungeonGrowth_629707357.png" id="3_7r4gi"]
+[ext_resource type="Texture2D" uid="uid://bf2lpdp6fx0vu" path="res://layouts/BasicDungeonGrowth_629707357.png" id="3_7r4gi"]
 [ext_resource type="Script" uid="uid://nubrom6raj80" path="res://scripts/camera_2d.gd" id="4_k0juu"]
-[ext_resource type="Texture2D" uid="uid://d0afssoe335wv" path="res://layouts/BasicDungeonGrowth_1362583618.png" id="4_w7kh3"]
-[ext_resource type="Texture2D" uid="uid://dkstlj11ggm8w" path="res://layouts/BasicDungeonGrowth_940057992.png" id="5_e3hyu"]
-[ext_resource type="Texture2D" uid="uid://casqb1atitu1x" path="res://layouts/BasicDungeonGrowth_1554479477.png" id="6_q5onr"]
-[ext_resource type="Texture2D" uid="uid://ctv6cqinbp3m1" path="res://layouts/BasicDungeonGrowth_1871121248.png" id="7_jhx03"]
-[ext_resource type="Texture2D" uid="uid://bfhx2as6enful" path="res://layouts/BasicDungeonGrowth_2139474028.png" id="8_o8fc1"]
+[ext_resource type="Texture2D" uid="uid://cxua7qd2od0gj" path="res://layouts/BasicDungeonGrowth_1362583618.png" id="4_w7kh3"]
+[ext_resource type="Texture2D" uid="uid://kgda31jtcuri" path="res://layouts/BasicDungeonGrowth_940057992.png" id="5_e3hyu"]
+[ext_resource type="Texture2D" uid="uid://dbfam6fyiws0y" path="res://layouts/BasicDungeonGrowth_1554479477.png" id="6_q5onr"]
+[ext_resource type="Texture2D" uid="uid://djmrr38jiiadp" path="res://layouts/BasicDungeonGrowth_1871121248.png" id="7_jhx03"]
+[ext_resource type="Texture2D" uid="uid://bsg3e3ou48bk0" path="res://layouts/BasicDungeonGrowth_2139474028.png" id="8_o8fc1"]
+[ext_resource type="Script" uid="uid://cnygl1dvveujx" path="res://scripts/game_manager.gd" id="10_e3hyu"]
+[ext_resource type="PackedScene" uid="uid://bbaarvhio2iwi" path="res://scenes/player.tscn" id="11_q5onr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rwgxs"]
 texture = ExtResource("1_nnsk1")
@@ -3631,5 +3633,10 @@ layouts = Array[Texture2D]([ExtResource("3_7r4gi"), ExtResource("4_w7kh3"), ExtR
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1222916271]
 offset = Vector2(-100, -50)
+enabled = false
 zoom = Vector2(2.5, 2.5)
 script = ExtResource("4_k0juu")
+
+[node name="GameManager" type="Node2D" parent="." unique_id=2063398287]
+script = ExtResource("10_e3hyu")
+player_scene = ExtResource("11_q5onr")

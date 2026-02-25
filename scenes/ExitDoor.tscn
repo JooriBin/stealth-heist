@@ -1,30 +1,29 @@
-[gd_scene load_steps=0 format=3 uid="uid://ccim8h2j25qpi"]
+[gd_scene format=3 uid="uid://ccim8h2j25qpi"]
 
 [ext_resource type="Script" uid="uid://d1hwp68cyuy0e" path="res://scripts/exit_door.gd" id="1_spv3s"]
 [ext_resource type="Texture2D" uid="uid://c5hjcpsgwtk7a" path="res://assets/windows_and_doors_sprites/sunlight/doors2-_1.png" id="2_spv3s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3rmmo"]
-size = Vector2(95, 134)
+size = Vector2(95, 79)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_spv3s"]
-size = Vector2(98, 128)
+size = Vector2(98, 77)
 
 [node name="ExitDoor" type="StaticBody2D" unique_id=485412813]
 script = ExtResource("1_spv3s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=243873709]
-position = Vector2(0, 35)
+position = Vector2(0, 7.5)
 shape = SubResource("RectangleShape2D_3rmmo")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2045472425]
 z_index = 100
-scale = Vector2(2, 2)
 texture = ExtResource("2_spv3s")
 
 [node name="Trigger" type="Area2D" parent="." unique_id=82324696]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Trigger" unique_id=2011019563]
-position = Vector2(1, 32)
+position = Vector2(1, 8.5)
 shape = SubResource("RectangleShape2D_spv3s")
 
 [node name="MessageLabel" type="Label" parent="." unique_id=1399472130]

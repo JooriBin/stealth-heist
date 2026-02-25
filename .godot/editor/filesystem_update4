@@ -1,3 +1,4 @@
 res://scenes/world.tscn
 res://scripts/gold.gd
 res://scripts/game_manager.gd
+res://scenes/ExitDoor.tscn

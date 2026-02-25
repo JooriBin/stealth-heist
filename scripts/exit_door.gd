@@ -9,6 +9,7 @@ extends StaticBody2D
 var _busy := false
 
 func _ready() -> void:
+	add_to_group("exit_door")  # ← 新增
 	trigger.body_entered.connect(_on_trigger_body_entered)
 	if msg:
 		msg.visible = false

@@ -431,6 +431,6 @@ z_index = 10
 position = Vector2(-1, -13)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_giy8y")
-animation = &"run_up"
+animation = &"run_right"
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

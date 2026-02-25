@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://ccim8h2j25qpi"]
+[gd_scene load_steps=0 format=3 uid="uid://ccim8h2j25qpi"]
 
 [ext_resource type="Script" uid="uid://d1hwp68cyuy0e" path="res://scripts/exit_door.gd" id="1_spv3s"]
 [ext_resource type="Texture2D" uid="uid://c5hjcpsgwtk7a" path="res://assets/windows_and_doors_sprites/sunlight/doors2-_1.png" id="2_spv3s"]

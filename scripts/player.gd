@@ -19,6 +19,7 @@ var last_facing: String = "down"
 var last_left: bool = false
 
 func _ready() -> void:
+	add_to_group("player")
 	hp = max_hp
 	_play_idle("down")
 

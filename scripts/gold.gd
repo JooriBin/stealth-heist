@@ -5,6 +5,7 @@ var _taken := false
 
 func _ready() -> void:
 	# Make sure the Area2D actually detects bodies
+	add_to_group("gold")   # ← 新增
 	monitoring = true
 	body_entered.connect(_on_body_entered)
 

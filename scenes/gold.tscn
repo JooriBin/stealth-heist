@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cphfhmte4kgjm"]
+[gd_scene load_steps=0 format=3 uid="uid://cphfhmte4kgjm"]
 
 [ext_resource type="Script" uid="uid://ct4ricuxn34w3" path="res://scripts/gold.gd" id="1_yna14"]
 [ext_resource type="Texture2D" uid="uid://b7n1vcud1tlgh" path="res://assets/Dungeon Collectables.png" id="2_afqnf"]

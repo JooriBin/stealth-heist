@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://cphfhmte4kgjm"]
+
+[ext_resource type="Script" path="res://scripts/gold.gd" id="1_yna14"]
+[ext_resource type="Texture2D" path="res://assets/Dungeon Collectables.png" id="2_afqnf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yna14"]
+size = Vector2(45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wgxkh"]
+atlas = ExtResource("2_afqnf")
+region = Rect2(72, 132, 18, 22)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k8flt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wgxkh")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 1.0
+}]
+
+[node name="Gold" type="Area2D" unique_id=2073046108]
+script = ExtResource("1_yna14")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1743765789]
+shape = SubResource("RectangleShape2D_yna14")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1724514658]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_k8flt")
+animation = &"idle"

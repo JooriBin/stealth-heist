@@ -11,3 +11,7 @@ res://scenes/player.tscn
 res://scripts/MJMapLoader.gd
 res://scripts/gold_label.gd
 res://scripts/hud.gd
+res://scenes/guard.tscn
+res://scripts/guard.gd
+res://scripts/player.gd
+res://scripts/guard_manager.gd

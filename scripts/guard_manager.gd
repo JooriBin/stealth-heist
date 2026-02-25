@@ -86,6 +86,7 @@ func spawn_guards() -> void:
 		var guard = guard_scene.instantiate()
 		add_child(guard)
 		guard.global_position = spawn_pos
+		guard.add_to_group("guards") # ← THIS IS THE IMPORTANT LINE
 
 		var patrol_points := _make_patrol_points_for_cell(spawn_cell, used_cells)
 
@@ -183,3 +184,5 @@ func _make_patrol_points_for_cell(origin: Vector2i, used_cells: Array) -> Array[
 		patrol_points.append(world_pos)
 
 	return patrol_points
+	
+	

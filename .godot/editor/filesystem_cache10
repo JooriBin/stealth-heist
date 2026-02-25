@@ -1,13 +1,13 @@
 63f7b34db8d8cdea90c76aacccf841ec
 ::res://::1771989474
 icon.svg::CompressedTexture2D::6012740430411299979::1771987847::1771987912::1::::<><><>0<>0<>40ab93dd5e27be0822200698b06d676e<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
-::res://assets/::1771990547
+::res://assets/::1772001663
 Dungeon Collectables.png::CompressedTexture2D::4660916870511444631::1771990374::1771990550::1::::<><><>0<>0<>297e4006892ec5963364b7766f3fb0dc<>res://.godot/imported/Dungeon Collectables.png-774cda206355be4d8bf4dfed9ee39923.ctex::
 furniture_and_props.png::CompressedTexture2D::1688322866455233075::1771987846::1771987913::1::::<><><>0<>0<>72869f58dcaf776057b3f585931700c2<>res://.godot/imported/furniture_and_props.png-c218e35cfd5144599bb3b306ea15c95a.ctex::
 Interiors_tilesets.png::CompressedTexture2D::2967007708988327001::1771987846::1771987912::1::::<><><>0<>0<>2400f63eabea1c621ede56109c696190<>res://.godot/imported/Interiors_tilesets.png-ba756198ce628c15539050f12d7bc348.ctex::
 windows_and_doors2.png::CompressedTexture2D::6829393692373071982::1771987847::1771987912::1::::<><><>0<>0<>45e3c4d529a6339fb2319cbb02be2096<>res://.godot/imported/windows_and_doors2.png-68eedb4d9041cf63422d9f5e38be82ce.ctex::
 windows_and_doors.png::CompressedTexture2D::7861455417754968026::1771987847::1771987912::1::::<><><>0<>0<>e6b19a82a745b62c5df2edb2a4cd2cdf<>res://.godot/imported/windows_and_doors.png-1982ec824ace32ffa5552d8c9aa21168.ctex::
-::res://assets/animations/::1771987914
+::res://assets/animations/::1772001679
 breakable-pots-anim-1-V1-11frames.png::CompressedTexture2D::3306693770803506688::1771987846::1771987914::1::::<><><>0<>0<>e34e4a50dde4f31432cbe399a462deb5<>res://.godot/imported/breakable-pots-anim-1-V1-11frames.png-43af531b71501f398c563329c9430ac4.ctex::
 breakable-pots-anim-1-V2-10frames.png::CompressedTexture2D::5691580579824739001::1771987846::1771987914::1::::<><><>0<>0<>5fd5064494b071eaad29495c72602279<>res://.godot/imported/breakable-pots-anim-1-V2-10frames.png-286df7e6a51fa17fc7f2afe17e3a2588.ctex::
 breakable-pots-anim-1-V3-10frames.png::CompressedTexture2D::3519052486965257867::1771987846::1771987914::1::::<><><>0<>0<>1b264db16e7a32fd0dcc547f8fae52ef<>res://.godot/imported/breakable-pots-anim-1-V3-10frames.png-5896e3689f35426e15e0759d9be55a43.ctex::
@@ -47,6 +47,12 @@ doors-d2-closing-v.png::CompressedTexture2D::6332173234995327196::1771987846::17
 doors-d2-opening-h.png::CompressedTexture2D::372221662952470168::1771987846::1771987914::1::::<><><>0<>0<>49971bcb352563e4b6693bf7f79d0dd3<>res://.godot/imported/doors-d2-opening-h.png-f53500c7aa36c70bc4a417be3b4431fa.ctex::
 doors-d2-opening-v.png::CompressedTexture2D::4791093895338883289::1771987846::1771987914::1::::<><><>0<>0<>ccac227b76e05510d2fe886b5260b61f<>res://.godot/imported/doors-d2-opening-v.png-1366a2b9654dd935353489ca130533de.ctex::
 torch.png::CompressedTexture2D::4505469011887919832::1771987846::1771987914::1::::<><><>0<>0<>4b904dcabeae6a89e1e4622e5ee9b319<>res://.godot/imported/torch.png-4cf0bbb878eeee762ff6ff0edc0f5dae.ctex::
+::res://assets/animations/Mushroom/::1772001679
+Attack.png::CompressedTexture2D::7893228154010732643::1772001679::1772001686::1::::<><><>0<>0<>25e6a3bc33489e0cff6b021473f163fe<>res://.godot/imported/Attack.png-43f834ef4aba02601585144e7fe766af.ctex::
+Death.png::CompressedTexture2D::2419091022349519530::1772001679::1772001686::1::::<><><>0<>0<>a6bf6968f71267dabce56282d25446ca<>res://.godot/imported/Death.png-183505d9609dd23b405b7272a7a13a87.ctex::
+Idle.png::CompressedTexture2D::9125634335409558876::1772001679::1772001686::1::::<><><>0<>0<>0af96f62f03d2523b11da6dab425064a<>res://.godot/imported/Idle.png-6c9b0e7400393f7d37cb8e850bd20852.ctex::
+Run.png::CompressedTexture2D::6766479728786256359::1772001679::1772001686::1::::<><><>0<>0<>64aadd019c76df1126c37339f4e71ac8<>res://.godot/imported/Run.png-8ba08ccb7a1031ccaec808733037a2f8.ctex::
+Take Hit.png::CompressedTexture2D::8890765009227774458::1772001679::1772001686::1::::<><><>0<>0<>cc6e2b89fe7fe51b9c54432f2fc26df6<>res://.godot/imported/Take Hit.png-9db379f9d4d9b2d937bed554baf81a6a.ctex::
 ::res://assets/furniture_and_props_sprites/::1771987916
 banner_0.png::CompressedTexture2D::897970490258025322::1771987846::1771987914::1::::<><><>0<>0<>03a8433b69bc0043bbae9f2289b56e10<>res://.godot/imported/banner_0.png-3dff8b623b9ba0785b84003a7a5c291a.ctex::
 banner_1.png::CompressedTexture2D::4792989140350007987::1771987846::1771987914::1::::<><><>0<>0<>88cbdc61ee720540252c7f91b6c98454<>res://.godot/imported/banner_1.png-95d4700d7b9288a3c8d8e41918cdb0d2.ctex::
@@ -925,23 +931,23 @@ BasicDungeonGrowth_1362583618.png::CompressedTexture2D::8914319838552092697::177
 BasicDungeonGrowth_1554479477.png::CompressedTexture2D::4810974791119284691::1771987847::1771987912::1::::<><><>0<>0<>7cda840133c807ba39196682814fa622<>res://.godot/imported/BasicDungeonGrowth_1554479477.png-8d86393c59dbcbc202ccb2a2f700e9ea.ctex::
 BasicDungeonGrowth_1871121248.png::CompressedTexture2D::6151667981032299722::1771987847::1771987912::1::::<><><>0<>0<>fa575155a951be0d2b4881d9b04544b3<>res://.godot/imported/BasicDungeonGrowth_1871121248.png-227ed70bbfa7032b24da3f4afc8a7fdb.ctex::
 BasicDungeonGrowth_2139474028.png::CompressedTexture2D::2753260282651582671::1771987847::1771987912::1::::<><><>0<>0<>41e89fee61ed5cd60c5e5714150420d6<>res://.godot/imported/BasicDungeonGrowth_2139474028.png-85b2069351a5b709f37f5ab582953e96.ctex::
-::res://scenes/::1771989560
-ExitDoor.tscn::PackedScene::4930522021626172486::1771989560::0::1::::<><><>0<>0<><>::uid://d1hwp68cyuy0e::::res://scripts/exit_door.gd<>uid://c5hjcpsgwtk7a::::res://assets/windows_and_doors_sprites/sunlight/doors2-_1.png
-gold.tscn::PackedScene::5840441411608654262::1771989558::0::1::::<><><>0<>0<><>::uid://ct4ricuxn34w3::::res://scripts/gold.gd
+::res://scenes/::1772000469
+ExitDoor.tscn::PackedScene::4930522021626172486::1771994629::0::1::::<><><>0<>0<><>::uid://d1hwp68cyuy0e::::res://scripts/exit_door.gd<>uid://c5hjcpsgwtk7a::::res://assets/windows_and_doors_sprites/sunlight/doors2-_1.png
+gold.tscn::PackedScene::5840441411608654262::1771992467::0::1::::<><><>0<>0<><>::uid://ct4ricuxn34w3::::res://scripts/gold.gd<>uid://b7n1vcud1tlgh::::res://assets/Dungeon Collectables.png
 guard.tscn::PackedScene::7240713164206239690::1771987847::0::1::::<><><>0<>0<><>::uid://b07f8kfky0hrq::::res://scripts/guard.gd<>uid://638aila1l0ch::::res://assets/sprites/characters/slime.png
 guard_manager.tscn::PackedScene::1672722288747374837::1771987847::0::1::::<><><>0<>0<><>::uid://d2kj7oxy6c57d::::res://scripts/guard_manager.gd<>uid://dbfpqubyq0hmo::::res://scenes/guard.tscn
-key.tscn::PackedScene::173322602499227252::1771989264::0::1::::<><><>0<>0<><>::uid://bv7hosog67uht::::res://scripts/key.gd
-player.tscn::PackedScene::2456641000014763916::1771987847::0::1::::<><><>0<>0<><>::uid://mm5ipi2bf81t::::res://scripts/player.gd<>uid://myarr1tafd6v::::res://assets/sprites/characters/player.png
-world.tscn::PackedScene::1850548709344499703::1771987847::0::1::::<><><>0<>0<><>::uid://b2woxausv4xtf::::res://assets/Interiors_tilesets.png<>uid://dlijga24c8cbp::::res://scripts/MJMapLoader.gd<>uid://ofk6xey21c5i::::res://layouts/BasicDungeonGrowth_629707357.png<>uid://nubrom6raj80::::res://scripts/camera_2d.gd<>uid://dg3oubxcvsn77::::res://layouts/BasicDungeonGrowth_1362583618.png<>uid://bj2gwjiuylhwe::::res://layouts/BasicDungeonGrowth_940057992.png<>uid://cplfcioted4o1::::res://layouts/BasicDungeonGrowth_1554479477.png<>uid://bbxmw4wkl10w1::::res://layouts/BasicDungeonGrowth_1871121248.png<>uid://ctgvslbojlrqg::::res://layouts/BasicDungeonGrowth_2139474028.png<>uid://cnygl1dvveujx::::res://scripts/game_manager.gd<>uid://bbaarvhio2iwi::::res://scenes/player.tscn<>uid://x3jqyoc7he8l::::res://scenes/guard_manager.tscn
-::res://scripts/::1771989558
+key.tscn::PackedScene::173322602499227252::1772000403::0::1::::<><><>0<>0<><>::uid://bv7hosog67uht::::res://scripts/key.gd<>uid://b7n1vcud1tlgh::::res://assets/Dungeon Collectables.png
+player.tscn::PackedScene::2456641000014763916::1771993396::0::1::::<><><>0<>0<><>::uid://mm5ipi2bf81t::::res://scripts/player.gd<>uid://dg4i8diuu35nc::::res://assets/sprites/characters/player.png
+world.tscn::PackedScene::1850548709344499703::1772000469::0::1::::<><><>0<>0<><>::uid://bijigidtk040l::::res://assets/Interiors_tilesets.png<>uid://dlijga24c8cbp::::res://scripts/MJMapLoader.gd<>uid://ddyym2n84o44l::::res://layouts/BasicDungeonGrowth_629707357.png<>uid://nubrom6raj80::::res://scripts/camera_2d.gd<>uid://d0afssoe335wv::::res://layouts/BasicDungeonGrowth_1362583618.png<>uid://dkstlj11ggm8w::::res://layouts/BasicDungeonGrowth_940057992.png<>uid://casqb1atitu1x::::res://layouts/BasicDungeonGrowth_1554479477.png<>uid://ctv6cqinbp3m1::::res://layouts/BasicDungeonGrowth_1871121248.png<>uid://bfhx2as6enful::::res://layouts/BasicDungeonGrowth_2139474028.png<>uid://cnygl1dvveujx::::res://scripts/game_manager.gd<>uid://bbaarvhio2iwi::::res://scenes/player.tscn<>uid://cphfhmte4kgjm::::res://scenes/gold.tscn<>uid://x3jqyoc7he8l::::res://scenes/guard_manager.tscn<>uid://cp7ulhpkgyiu::::res://scenes/key.tscn<>uid://ccim8h2j25qpi::::res://scenes/ExitDoor.tscn<>uid://df413f0pg1lvw::::res://scripts/hud.gd
+::res://scripts/::1772001041
 camera_2d.gd::GDScript::953834353160548623::1771987847::0::1::::<>Camera2D<><>0<>0<><>::
-game_manager.gd::GDScript::5735226717691514985::1771989558::0::1::::<>Node2D<><>0<>0<><>::
+game_manager.gd::GDScript::5735226717691514985::1772000403::0::1::::<>Node2D<><>0<>0<><>::
 guard.gd::GDScript::4207564912381458486::1771987847::0::1::::<>CharacterBody2D<><>0<>0<><>::
 guard_manager.gd::GDScript::9075608977176024699::1771987847::0::1::::<>Node2D<><>0<>0<><>::
 map_generator.gd::GDScript::979502196719101284::1771987847::0::1::::<>Node<><>0<>0<><>::
-MJMapLoader.gd::GDScript::7948411563859783745::1771987847::0::1::::<>Node<><>0<>0<><>::
+MJMapLoader.gd::GDScript::7948411563859783745::1771999793::0::1::::<>Node<><>0<>0<><>::
 player.gd::GDScript::868875254276354851::1771987847::0::1::::<>CharacterBody2D<><>0<>0<><>::
-exit_door.gd::GDScript::8999986870022157014::1771989264::0::1::::<>Area2D<><>0<>0<><>::
-gold.gd::GDScript::6167342963611130508::1771989264::0::1::::<>Area2D<><>0<>0<><>::
-key.gd::GDScript::3926897475648612225::1771988250::0::1::::<>Area2D<><>0<>0<><>::
-game_state.gd::GDScript::3753405250845380354::1771989264::0::1::::<>Node<><>0<>0<><>::
+exit_door.gd::GDScript::8999986870022157014::1771994629::0::1::::<>StaticBody2D<><>0<>0<><>::
+gold.gd::GDScript::6167342963611130508::1771993316::0::1::::<>Area2D<><>0<>0<><>::
+key.gd::GDScript::3926897475648612225::1771995264::0::1::::<>Area2D<><>0<>0<><>::
+hud.gd::GDScript::7571702170105909596::1772000469::0::1::::<>CanvasLayer<><>0<>0<><>::

@@ -16,6 +16,7 @@ var exit_zone: Area2D
 
 
 func _ready():
+	add_to_group("game_manager")
 	coins_changed.emit(coins)
 	key_changed.emit(has_key)
 	spawn_player_and_exit()
@@ -55,8 +56,9 @@ func spawn_player_and_exit():
 	var exit_pos = floor_layer.map_to_local(exit_cell)
 	create_exit(exit_pos)
 
-	# Spawn key
+	# Spawn key  
 	spawn_key(used_cells, spawn_cell)
+	spawn_single_key_near_player()
 
 	# Spawn gold
 	spawn_gold(used_cells)
@@ -78,6 +80,23 @@ func get_far_cell(cells: Array, origin):
 	return best_cell
 
 
+func spawn_single_key_near_player() -> void:
+	var offsets = [
+		Vector2(32, 0),
+		Vector2(-32, 0),
+		Vector2(0, 32),
+		Vector2(0, -32)
+	]
+
+	offsets.shuffle()
+
+	var key_pos = player.global_position + offsets[0]
+
+	var key = preload("res://scenes/key.tscn").instantiate()
+	add_child(key)
+	key.global_position = key_pos
+
+	print("Key spawned near player at:", key_pos)
 # --------------------------------------------------
 # EXIT
 # --------------------------------------------------

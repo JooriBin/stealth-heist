@@ -1,163 +1,228 @@
 extends CharacterBody2D
 
-@export var move_speed: float = 55.0
-@export var detection_radius: float = 110.0
-@export var attack_range: float = 18.0
-@export var attack_cooldown: float = 1.0
-@export var damage: int = 1
-@export var max_hp: int = 2
-var hp: int
+enum State { PATROL, CHASE, RETURN }
 
-enum State { PATROL, CHASE, ATTACK, HURT, DEAD }
-var state: State = State.PATROL
+@export var move_speed: float = 90.0
+@export var chase_speed: float = 130.0
+@export var detection_radius: float = 140.0
+@export var catch_radius: float = 30
+@export var lose_target_time: float = 1.5
+@export var waypoint_reach_distance: float = 6.0
+
+# 角色显示缩放（你前面说想放大 2 倍）
+@export var sprite_scale: float = 2.0
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 
+var state: State = State.PATROL
 var player: Node2D = null
 var game_manager: Node = null
+
 var patrol_points: Array[Vector2] = []
 var patrol_index: int = 0
 
-var attack_cd_timer: float = 0.0
+var return_target: Vector2 = Vector2.ZERO
+var last_seen_player_pos: Vector2 = Vector2.ZERO
+var lose_timer: float = 0.0
 
-func setup_guard(p_player: Node2D, p_game_manager: Node, p_patrol_points: Array) -> void:
-	player = p_player
-	game_manager = p_game_manager
-	patrol_points = p_patrol_points
-	patrol_index = 0
+var is_disabled: bool = false
+
+# 记录最后朝向：down / up / left / right
+var last_facing: String = "down"
 
 func _ready() -> void:
-	hp = max_hp
-	anim.play("idle")
+	add_to_group("guards")
+	if anim:
+		anim.scale = Vector2(sprite_scale, sprite_scale)
+		_play_idle(last_facing)
+
+func setup_guard(p_player: Node2D, p_game_manager: Node, p_patrol_points: Array[Vector2]) -> void:
+	player = p_player
+	game_manager = p_game_manager
+	patrol_points = p_patrol_points.duplicate()
+
+	if patrol_points.is_empty():
+		patrol_points.append(global_position)
+
+	patrol_index = 0
+	return_target = patrol_points[0]
+	state = State.PATROL
 
 func _physics_process(delta: float) -> void:
-	if state == State.DEAD:
+	if is_disabled:
 		velocity = Vector2.ZERO
 		move_and_slide()
+		_update_animation_from_velocity()
 		return
 
-	attack_cd_timer = max(0.0, attack_cd_timer - delta)
-
-	# 🔴 VERY IMPORTANT
-	# While attacking or hurt, do not change animation or move
-	if state == State.ATTACK or state == State.HURT:
+	if player == null or not is_instance_valid(player):
 		velocity = Vector2.ZERO
 		move_and_slide()
+		_update_animation_from_velocity()
 		return
 
-	_update_state()
+	var dist_to_player := global_position.distance_to(player.global_position)
+	var can_see_player := dist_to_player <= detection_radius
+	var can_catch_player := dist_to_player <= catch_radius
 
-	# If state changed to ATTACK inside _update_state(), stop here
-	if state == State.ATTACK:
-		velocity = Vector2.ZERO
-		move_and_slide()
+	if can_catch_player:
+		_on_player_caught()
 		return
 
 	match state:
 		State.PATROL:
-			_do_patrol()
+			if can_see_player:
+				_enter_chase()
+			else:
+				_patrol_move()
+
 		State.CHASE:
-			_do_chase()
+			if can_see_player:
+				last_seen_player_pos = player.global_position
+				lose_timer = 0.0
+				_chase_move()
+			else:
+				lose_timer += delta
+				_chase_move_to_last_seen()
+				if lose_timer >= lose_target_time:
+					_enter_return()
 
-	_set_facing_from_velocity()
-	_play_if_not("idle")
+		State.RETURN:
+			if can_see_player:
+				_enter_chase()
+			else:
+				_return_move()
+
 	move_and_slide()
+	_update_animation_from_velocity()
 
-func _update_state() -> void:
-	if player == null or not is_instance_valid(player):
-		state = State.PATROL
-		return
+func _enter_chase() -> void:
+	state = State.CHASE
+	last_seen_player_pos = player.global_position
+	lose_timer = 0.0
+	# print("[Guard] CHASE")
 
-	var dist := global_position.distance_to(player.global_position)
+func _enter_return() -> void:
+	state = State.RETURN
+	return_target = _get_current_patrol_target()
+	# print("[Guard] RETURN")
 
-	# Attack when close (cooldown gated)
-	if dist <= attack_range and attack_cd_timer <= 0.0:
-		_start_attack()
-		return
+func _patrol_move() -> void:
+	var target := _get_current_patrol_target()
 
-	# Chase if within detection radius
-	if dist <= detection_radius:
-		state = State.CHASE
-	else:
-		state = State.PATROL
-
-func _do_patrol() -> void:
-	if patrol_points.is_empty():
-		velocity = Vector2.ZERO
-		return
-
-	var target := patrol_points[patrol_index]
-	var to_target := target - global_position
-
-	if to_target.length() < 8.0:
+	if global_position.distance_to(target) <= waypoint_reach_distance:
 		patrol_index = (patrol_index + 1) % patrol_points.size()
-		target = patrol_points[patrol_index]
-		to_target = target - global_position
+		target = _get_current_patrol_target()
 
-	velocity = to_target.normalized() * move_speed * 0.6
+	var dir := target - global_position
+	velocity = dir.normalized() * move_speed if dir.length() > 0.001 else Vector2.ZERO
 
-func _do_chase() -> void:
-	if player == null:
+func _chase_move() -> void:
+	var dir := player.global_position - global_position
+	velocity = dir.normalized() * chase_speed if dir.length() > 0.001 else Vector2.ZERO
+
+func _chase_move_to_last_seen() -> void:
+	var dir := last_seen_player_pos - global_position
+	if dir.length() <= waypoint_reach_distance:
 		velocity = Vector2.ZERO
-		return
-	var dir := (player.global_position - global_position).normalized()
-	velocity = dir * move_speed
+	else:
+		velocity = dir.normalized() * chase_speed
 
-func _start_attack() -> void:
-	if player == null:
+func _return_move() -> void:
+	var target := return_target
+	if global_position.distance_to(target) <= waypoint_reach_distance:
+		state = State.PATROL
+		velocity = Vector2.ZERO
+		# print("[Guard] back to PATROL")
 		return
 
-	state = State.ATTACK
+	var dir := target - global_position
+	velocity = dir.normalized() * move_speed if dir.length() > 0.001 else Vector2.ZERO
+
+func _get_current_patrol_target() -> Vector2:
+	if patrol_points.is_empty():
+		return global_position
+	return patrol_points[clamp(patrol_index, 0, patrol_points.size() - 1)]
+
+func _on_player_caught() -> void:
+	# 可选：让所有守卫停下（避免重复触发）
+	for g in get_tree().get_nodes_in_group("guards"):
+		if g.has_method("disable_guard"):
+			g.call("disable_guard")
+
+	# 优先让玩家播放 die（如果 player.gd 里有 die()）
+	if player and player.has_method("die"):
+		player.call("die")
+		return
+
+	# 兼容旧逻辑：直接交给 GameManager
+	if game_manager and game_manager.has_method("on_player_caught"):
+		game_manager.call("on_player_caught")
+	else:
+		print("PLAYER CAUGHT")
+		get_tree().reload_current_scene()
+
+func disable_guard() -> void:
+	is_disabled = true
 	velocity = Vector2.ZERO
-	attack_cd_timer = attack_cooldown
+	_play_idle(last_facing)
 
-	# Face player (right-facing sprites only)
-	anim.flip_h = (player.global_position.x < global_position.x)
-
-	anim.play("attack1")
-
-	# Deal damage once per attack (range-based)
-	if player.has_method("take_damage"):
-		player.take_damage(damage)
-
-func take_damage(amount: int) -> void:
-	if state == State.DEAD:
+# =========================
+# 动画控制（和 player 同风格）
+# =========================
+func _update_animation_from_velocity() -> void:
+	if anim == null:
 		return
 
-	hp -= amount
-	print("Guard HP:", hp)
+	if velocity.length() <= 0.01:
+		_play_idle(last_facing)
+		return
 
-	if hp <= 0:
-		state = State.DEAD
-		velocity = Vector2.ZERO
+	var dir := velocity.normalized()
 
-		# play die if you have it, otherwise delete instantly
-		if anim.sprite_frames and anim.sprite_frames.has_animation("die"):
-			anim.play("die")
+	# 轴优先判定，避免斜向时抖动切换
+	if abs(dir.x) > abs(dir.y):
+		if dir.x < 0:
+			last_facing = "left"
+			anim.flip_h = true
 		else:
-			queue_free()
+			last_facing = "right"
+			anim.flip_h = false
+
+		if anim.animation != "run_right":
+			anim.play("run_right")
+	else:
+		anim.flip_h = false
+		if dir.y < 0:
+			last_facing = "up"
+			if anim.animation != "run_up":
+				anim.play("run_up")
+		else:
+			last_facing = "down"
+			if anim.animation != "run_down":
+				anim.play("run_down")
+
+func _play_idle(facing: String) -> void:
+	if anim == null:
 		return
 
-	# optional hurt anim if you have it
-	if anim.sprite_frames and anim.sprite_frames.has_animation("hurt"):
-		state = State.HURT
-		anim.play("hurt")
+	match facing:
+		"up":
+			anim.flip_h = false
+			if anim.animation != "idle_up":
+				anim.play("idle_up")
 
-func _set_facing_from_velocity() -> void:
-	if velocity.x < -0.1:
-		anim.flip_h = true
-	elif velocity.x > 0.1:
-		anim.flip_h = false
+		"left":
+			anim.flip_h = true
+			if anim.animation != "idle_right":
+				anim.play("idle_right")
 
-func _play_if_not(name: String) -> void:
-	if anim.animation != name:
-		anim.play(name)
+		"right":
+			anim.flip_h = false
+			if anim.animation != "idle_right":
+				anim.play("idle_right")
 
-# IMPORTANT: Connect AnimatedSprite2D -> animation_finished to this
-func _on_animated_sprite_2d_animation_finished() -> void:
-	if anim.animation == "attack1":
-		state = State.CHASE
-	elif anim.animation == "hurt":
-		state = State.CHASE
-	elif anim.animation == "die":
-		queue_free()
+		_:
+			anim.flip_h = false
+			if anim.animation != "idle_down":
+				anim.play("idle_down")

@@ -8,3 +8,4 @@ res://scenes/ExitDoor.tscn
 res://scenes/world.tscn
 res://scripts/key.gd
 res://scenes/player.tscn
+res://scripts/MJMapLoader.gd

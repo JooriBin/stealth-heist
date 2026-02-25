@@ -12,6 +12,11 @@ extends Node
 @export var deco_source_id: int = 0 # usually same tileset source as walls
 
 # Variants
+@export var border_top_variants: Array[Vector2i] = [Vector2i(21, 21), Vector2i(22, 21), Vector2i(23, 21), Vector2i(24, 21), Vector2i(25, 21), Vector2i(226, 21)]
+@export var border_bottom_variants: Array[Vector2i] = [Vector2i(21, 28), Vector2i(22, 28), Vector2i(23, 28), Vector2i(24, 28), Vector2i(25, 28), Vector2i(26, 28)]
+@export var border_left_variants: Array[Vector2i] = [Vector2i(19, 24),  Vector2i(19, 25), Vector2i(19, 26)]
+@export var border_right_variants: Array[Vector2i] = [Vector2i(28, 24),  Vector2i(28, 25), Vector2i(28, 26)]
+@export var border_thickness: int = 1
 @export var floor_variants: Array[Vector2i] = [
 	Vector2i(42, 8), Vector2i(41, 8), Vector2i(40, 8), Vector2i(39, 8),
 	Vector2i(38, 8), Vector2i(37, 8), Vector2i(40, 6),
@@ -97,6 +102,8 @@ func load_from_image(img: Image) -> void:
 			for x in range(w):
 				if type_grid[y][x] == T_WALL and type_grid[y + 1][x] == T_FLOOR:
 					deco_layer.set_cell(Vector2i(x, y), deco_source_id, _pick(wall_bottom_variants))
+	
+	_apply_border(w, h)
 
 func _floor_is_near_wall(x: int, y: int, w: int, h: int) -> bool:
 	# 4-neighborhood check (N/E/S/W)
@@ -116,3 +123,48 @@ func _pick(arr: Array[Vector2i]) -> Vector2i:
 
 func is_similar_rgb(a: Color, b: Color, tol: float) -> bool:
 	return abs(a.r - b.r) <= tol and abs(a.g - b.g) <= tol and abs(a.b - b.b) <= tol
+	
+	
+func _apply_border(w: int, h: int) -> void:
+	var t = max(1, border_thickness)
+
+	var top_list    := border_top_variants    if not border_top_variants.is_empty()    else wall_variants
+	var bottom_list := border_bottom_variants if not border_bottom_variants.is_empty() else wall_variants
+	var left_list   := border_left_variants   if not border_left_variants.is_empty()   else wall_variants
+	var right_list  := border_right_variants  if not border_right_variants.is_empty()  else wall_variants
+
+	# --- TOP + BOTTOM ---
+	for y in range(t):
+		for x in range(w):
+
+			# TOP
+			if type_grid[y + 1][x] != T_EMPTY:
+				var top_cell := Vector2i(x, y)
+				wall_layer.set_cell(top_cell, wall_source_id, _pick(top_list))
+				floor_layer.erase_cell(top_cell)
+				type_grid[y][x] = T_WALL
+
+			# BOTTOM
+			if type_grid[h - 2 - y][x] != T_EMPTY:
+				var bot_cell := Vector2i(x, h - 1 - y)
+				wall_layer.set_cell(bot_cell, wall_source_id, _pick(bottom_list))
+				floor_layer.erase_cell(bot_cell)
+				type_grid[h - 1 - y][x] = T_WALL
+
+	# --- LEFT + RIGHT ---
+	for y in range(h):
+		for x in range(t):
+
+			# LEFT
+			if type_grid[y][x + 1] != T_EMPTY:
+				var left_cell := Vector2i(x, y)
+				wall_layer.set_cell(left_cell, wall_source_id, _pick(left_list))
+				floor_layer.erase_cell(left_cell)
+				type_grid[y][x] = T_WALL
+
+			# RIGHT
+			if type_grid[y][w - 2 - x] != T_EMPTY:
+				var right_cell := Vector2i(w - 1 - x, y)
+				wall_layer.set_cell(right_cell, wall_source_id, _pick(right_list))
+				floor_layer.erase_cell(right_cell)
+				type_grid[y][w - 1 - x] = T_WALL

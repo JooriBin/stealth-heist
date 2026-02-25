@@ -1,27 +1,27 @@
 [gd_scene format=3 uid="uid://cphfhmte4kgjm"]
 
-[ext_resource type="Script" path="res://scripts/gold.gd" id="1_yna14"]
-[ext_resource type="Texture2D" path="res://assets/Dungeon Collectables.png" id="2_afqnf"]
+[ext_resource type="Script" uid="uid://ct4ricuxn34w3" path="res://scripts/gold.gd" id="1_yna14"]
+[ext_resource type="Texture2D" uid="uid://b7n1vcud1tlgh" path="res://assets/Dungeon Collectables.png" id="2_afqnf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yna14"]
 size = Vector2(45, 45)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wgxkh"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_yna14"]
 atlas = ExtResource("2_afqnf")
-region = Rect2(72, 132, 18, 22)
+region = Rect2(72, 136, 18, 17)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_k8flt"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wgxkh")
+"texture": SubResource("AtlasTexture_yna14")
 }],
-"loop": true,
+"loop": false,
 "name": &"idle",
 "speed": 1.0
 }]
 
-[node name="Gold" type="Area2D" unique_id=2073046108]
+[node name="Gold" type="Area2D" unique_id=628450684]
 script = ExtResource("1_yna14")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1743765789]

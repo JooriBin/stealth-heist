@@ -1,7 +1,10 @@
-res://scenes/player.tscn
+res://scenes/key.tscn
+res://scripts/exit_door.gd
+res://scripts/game_state.gd
+res://scripts/gold.gd
+res://scenes/gold.tscn
+res://scripts/game_manager.gd
+res://scenes/ExitDoor.tscn
 res://scenes/world.tscn
-res://scripts/guard.gd
-res://scripts/guard_manager.gd
-res://scripts/player.gd
-res://scenes/guard.tscn
-res://scripts/camera_2d.gd
+res://scripts/key.gd
+res://scenes/player.tscn

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ccim8h2j25qpi"]
 
-[ext_resource type="Script" path="res://scripts/ExitDoor.gd" id="1_spv3s"]
-[ext_resource type="Texture2D" uid="uid://vecvlij3ee1c" path="res://assets/windows_and_doors_sprites/sunlight/doors2-_1.png" id="2_spv3s"]
+[ext_resource type="Script" uid="uid://d1hwp68cyuy0e" path="res://scripts/exit_door.gd" id="1_spv3s"]
+[ext_resource type="Texture2D" uid="uid://c5hjcpsgwtk7a" path="res://assets/windows_and_doors_sprites/sunlight/doors2-_1.png" id="2_spv3s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3rmmo"]
 size = Vector2(95, 134)
@@ -26,3 +26,12 @@ texture = ExtResource("2_spv3s")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Trigger" unique_id=2011019563]
 position = Vector2(1, 32)
 shape = SubResource("RectangleShape2D_spv3s")
+
+[node name="MessageLabel" type="Label" parent="." unique_id=1399472130]
+offset_left = -122.0
+offset_top = -63.0
+offset_right = 148.0
+offset_bottom = -39.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 17
+text = "A key is needed to open the door"

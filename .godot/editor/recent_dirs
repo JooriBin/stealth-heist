@@ -1,6 +1,6 @@
-res://assets/sprites/characters
-res://scenes
+res://assets/
+res://scripts/
+res://assets/sprites/characters/
+res://scenes/
 res://scenes/
 res://layouts/
-res://scripts/
-res://assets/

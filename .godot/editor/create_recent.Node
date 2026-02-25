@@ -1,9 +1,11 @@
+Label
+Area2D
+Node2D
 TileMapLayer
 AnimatedSprite2D
 Sprite2D
 CollisionShape2D
 CharacterBody2D
-Node2D
 Camera2D
 Node
 TileMap

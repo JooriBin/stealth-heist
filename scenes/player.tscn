@@ -1,10 +1,10 @@
-[gd_scene load_steps=44 format=3 uid="uid://bbaarvhio2iwi"]
+[gd_scene format=3 uid="uid://bbaarvhio2iwi"]
 
 [ext_resource type="Script" uid="uid://mm5ipi2bf81t" path="res://scripts/player.gd" id="1_3vyb7"]
-[ext_resource type="Texture2D" uid="uid://myarr1tafd6v" path="res://assets/sprites/characters/player.png" id="2_g2els"]
+[ext_resource type="Texture2D" uid="uid://dg4i8diuu35nc" path="res://assets/sprites/characters/player.png" id="2_g2els"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
-size = Vector2(16, 20)
+size = Vector2(8.5, 24.5)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qhqgy"]
 atlas = ExtResource("2_g2els")
@@ -317,17 +317,17 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" unique_id=1907864103 groups=["player"]]
 script = ExtResource("1_3vyb7")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=569532973]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -1)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1377786281]
+position = Vector2(2.5, 1.5)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_g2els")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=881803143]
 z_index = 10
 position = Vector2(0, -15)
 scale = Vector2(2, 2)

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://myarr1tafd6v" path="res://assets/sprites/characters/player.png" id="2_g2els"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
-size = Vector2(9, 20)
+size = Vector2(15.5, 21)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
 atlas = ExtResource("2_g2els")
@@ -422,7 +422,7 @@ script = ExtResource("1_3vyb7")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
+position = Vector2(-0.5, 0)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_g2els")
 

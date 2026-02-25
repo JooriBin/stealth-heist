@@ -16,8 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://cp7ulhpkgyiu" path="res://scenes/key.tscn" id="13_xo05s"]
 [ext_resource type="PackedScene" uid="uid://ccim8h2j25qpi" path="res://scenes/ExitDoor.tscn" id="14_xo05s"]
 [ext_resource type="Script" uid="uid://df413f0pg1lvw" path="res://scripts/hud.gd" id="16_dss4m"]
-[ext_resource type="Texture2D" uid="uid://bepe4yndbubdh" path="res://assets/white/icon_glow.png" id="17_7t5mc"]
-[ext_resource type="Texture2D" uid="uid://b8mte3s8t7tr5" path="res://assets/white/icon_coin.png" id="18_lakw3"]
+[ext_resource type="Texture2D" uid="uid://d08erfqg5n2m6" path="res://assets/white/icon_glow.png" id="17_7t5mc"]
+[ext_resource type="Texture2D" uid="uid://dlm0b82lpv3h7" path="res://assets/white/icon_coin.png" id="18_lakw3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rwgxs"]
 texture = ExtResource("1_nnsk1")
@@ -5417,6 +5417,9 @@ door_scene = ExtResource("14_xo05s")
 
 [node name="GuardManager" parent="." instance=ExtResource("12_q5onr")]
 guard_count = 10
+floor_layer_path = NodePath("../FloorLayer")
+game_manager_path = NodePath("../GameManager")
+map_generator_path = NodePath("../MapGenerator")
 
 [node name="DecoLayer" type="TileMapLayer" parent="."]
 tile_set = SubResource("TileSet_dss4m")

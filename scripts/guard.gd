@@ -5,7 +5,7 @@ enum State { PATROL, CHASE, RETURN }
 @export var move_speed: float = 90.0
 @export var chase_speed: float = 130.0
 @export var detection_radius: float = 140.0
-@export var catch_radius: float = 30
+@export var catch_radius: float = 18.0
 @export var lose_target_time: float = 1.5
 @export var waypoint_reach_distance: float = 6.0
 
@@ -145,23 +145,29 @@ func _get_current_patrol_target() -> Vector2:
 	return patrol_points[clamp(patrol_index, 0, patrol_points.size() - 1)]
 
 func _on_player_caught() -> void:
-	# 可选：让所有守卫停下（避免重复触发）
+	# 防止重复触发
+	if is_disabled:
+		return
+	is_disabled = true
+	velocity = Vector2.ZERO
+
+	# 停掉所有守卫，避免多个守卫同时重复调用 player.die()
 	for g in get_tree().get_nodes_in_group("guards"):
 		if g.has_method("disable_guard"):
 			g.call("disable_guard")
 
-	# 优先让玩家播放 die（如果 player.gd 里有 die()）
-	if player and player.has_method("die"):
+	# 触发玩家死亡动画（动画结束后由 player.gd 重启场景）
+	if player and is_instance_valid(player) and player.has_method("die"):
 		player.call("die")
 		return
 
-	# 兼容旧逻辑：直接交给 GameManager
+	# 兜底
 	if game_manager and game_manager.has_method("on_player_caught"):
 		game_manager.call("on_player_caught")
 	else:
-		print("PLAYER CAUGHT")
 		get_tree().reload_current_scene()
-
+		
+		
 func disable_guard() -> void:
 	is_disabled = true
 	velocity = Vector2.ZERO
@@ -226,3 +232,11 @@ func _play_idle(facing: String) -> void:
 			anim.flip_h = false
 			if anim.animation != "idle_down":
 				anim.play("idle_down")
+
+# 可选：如果你以后想让守卫也有死亡动画
+func die() -> void:
+	is_disabled = true
+	velocity = Vector2.ZERO
+	if anim:
+		anim.flip_h = false
+		anim.play("die")

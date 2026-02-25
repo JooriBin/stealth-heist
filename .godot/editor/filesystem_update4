@@ -16,3 +16,4 @@ res://scripts/key.gd
 res://scripts/exit_door.gd
 res://scripts/hud.gd
 res://scripts/polygon.gd
+res://scenes/guard_manager.tscn

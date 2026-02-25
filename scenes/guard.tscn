@@ -1,27 +1,11 @@
-<<<<<<< Updated upstream
-[gd_scene load_steps=35 format=3 uid="uid://dbfpqubyq0hmo"]
+[gd_scene load_steps=36 format=3 uid="uid://c772p75mi5t2x"]
 
 [ext_resource type="Script" uid="uid://b07f8kfky0hrq" path="res://scripts/guard.gd" id="1_m4fl1"]
 [ext_resource type="Texture2D" uid="uid://638aila1l0ch" path="res://assets/sprites/characters/slime.png" id="2_ci2qi"]
-=======
-<<<<<<< HEAD
-[gd_scene load_steps=29 format=3 uid="uid://dbfpqubyq0hmo"]
-
-[ext_resource type="Script" uid="uid://b07f8kfky0hrq" path="res://scripts/guard.gd" id="1_m4fl1"]
-[ext_resource type="Texture2D" uid="uid://euhheap8pckr" path="res://assets/animations/Mushroom/Attack.png" id="2_gn8tx"]
-[ext_resource type="Texture2D" uid="uid://ddw2oj4w5i4n1" path="res://assets/animations/Mushroom/Death.png" id="3_5dfqo"]
-[ext_resource type="Texture2D" uid="uid://biyh8h8y8yc3b" path="res://assets/animations/Mushroom/Take Hit.png" id="4_ywdc2"]
-[ext_resource type="Texture2D" uid="uid://cgi514fkrci7i" path="res://assets/animations/Mushroom/Idle.png" id="5_c4sgu"]
-[ext_resource type="Script" uid="uid://bd0dw6wmi0i1x" path="res://scripts/polygon.gd" id="6_5dfqo"]
-=======
-[gd_scene load_steps=35 format=3 uid="uid://dbfpqubyq0hmo"]
-
-[ext_resource type="Script" uid="uid://b07f8kfky0hrq" path="res://scripts/guard.gd" id="1_m4fl1"]
-[ext_resource type="Texture2D" uid="uid://638aila1l0ch" path="res://assets/sprites/characters/slime.png" id="2_ci2qi"]
->>>>>>> 2672b7cf37c01b441d4c57aab45b1f34d4e865d7
->>>>>>> Stashed changes
+[ext_resource type="Script" path="res://scripts/polygon.gd" id="6_5dfqo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ygo2t"]
+size = Vector2(26, 23)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k0dx2"]
 atlas = ExtResource("2_ci2qi")
@@ -267,38 +251,29 @@ animations = [{
 }]
 
 [node name="Guard" type="CharacterBody2D"]
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
-scale = Vector2(0.85, 0.85)
-=======
->>>>>>> 2672b7cf37c01b441d4c57aab45b1f34d4e865d7
->>>>>>> Stashed changes
 script = ExtResource("1_m4fl1")
-attack_range = 30.0
+detection_radius = 200.0
+catch_radius = 42.0
 
-<<<<<<< Updated upstream
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-=======
-<<<<<<< HEAD
 [node name="Polygon2D" type="Polygon2D" parent="."]
-modulate = Color(1, 1, 1, 0.21960784)
-scale = Vector2(1.0000001, 1.0000001)
-color = Color(1, 1, 0, 1)
+modulate = Color(1, 1, 1, 0.19607843)
+color = Color(1, 1, 1, 0.19607843)
 script = ExtResource("6_5dfqo")
+radius = 42.0
+
+[node name="Polygon2D2" type="Polygon2D" parent="."]
+modulate = Color(1, 1, 1, 0.19607843)
+color = Color(1, 1, 1, 0.19607843)
+script = ExtResource("6_5dfqo")
+radius = 150.0
 fill_color = Color(1, 1, 0, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.99999994, 8.882354)
-scale = Vector2(0.75000006, 0.75000006)
-=======
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
->>>>>>> 2672b7cf37c01b441d4c57aab45b1f34d4e865d7
->>>>>>> Stashed changes
+position = Vector2(4.7683716e-07, 0.5)
 shape = SubResource("RectangleShape2D_ygo2t")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-5.9604645e-08, -1.1920929e-07)
+position = Vector2(-2.1175824e-22, -4.2351647e-22)
 scale = Vector2(1.359375, 1.359375)
 sprite_frames = SubResource("SpriteFrames_vuaq3")
 animation = &"run_up"

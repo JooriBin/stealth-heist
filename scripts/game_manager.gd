@@ -16,6 +16,8 @@ var exit_zone: Area2D
 
 
 func _ready():
+	coins_changed.emit(coins)
+	key_changed.emit(has_key)
 	spawn_player_and_exit()
 
 

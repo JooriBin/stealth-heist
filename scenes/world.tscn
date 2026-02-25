@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://x3jqyoc7he8l" path="res://scenes/guard_manager.tscn" id="12_q5onr"]
 [ext_resource type="PackedScene" uid="uid://cp7ulhpkgyiu" path="res://scenes/key.tscn" id="13_xo05s"]
 [ext_resource type="PackedScene" uid="uid://ccim8h2j25qpi" path="res://scenes/ExitDoor.tscn" id="14_xo05s"]
+[ext_resource type="Script" uid="uid://df413f0pg1lvw" path="res://scripts/hud.gd" id="16_dss4m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rwgxs"]
 texture = ExtResource("1_nnsk1")
@@ -5398,22 +5399,6 @@ tile_set = SubResource("TileSet_71j4m")
 [node name="MapGenerator" type="Node" parent="." unique_id=1058933877]
 script = ExtResource("2_4wyf3")
 layouts = Array[Texture2D]([ExtResource("3_7r4gi"), ExtResource("4_w7kh3"), ExtResource("5_e3hyu"), ExtResource("6_q5onr"), ExtResource("7_jhx03"), ExtResource("8_o8fc1")])
-floor_source_id = null
-wall_source_id = null
-deco_source_id = null
-border_top_variants = null
-border_bottom_variants = null
-border_left_variants = null
-border_right_variants = null
-border_thickness = null
-floor_variants = null
-wall_variants = null
-wall_bottom_variants = null
-use_floor_edges = null
-floor_edge_variants = null
-floor_color = null
-wall_color = null
-color_tolerance = null
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1090229627]
 offset = Vector2(-100, -50)
@@ -5433,3 +5418,15 @@ guard_count = 10
 
 [node name="DecoLayer" type="TileMapLayer" parent="." unique_id=1541677850]
 tile_set = SubResource("TileSet_dss4m")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1140986191]
+script = ExtResource("16_dss4m")
+
+[node name="GoldLabel" type="Label" parent="HUD" unique_id=373331226]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -54.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "Gold: 0"

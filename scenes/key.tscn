@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b7n1vcud1tlgh" path="res://assets/Dungeon Collectables.png" id="2_wy8tx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fttkb"]
-size = Vector2(45, 45)
+size = Vector2(54, 49.5)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fttkb"]
 atlas = ExtResource("2_wy8tx")
@@ -60,9 +60,11 @@ animations = [{
 script = ExtResource("1_fttkb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=722494528]
+position = Vector2(-1, 2.25)
 shape = SubResource("RectangleShape2D_fttkb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1741487000]
-scale = Vector2(5, 5)
+position = Vector2(-2.9999998, -9.749998)
+scale = Vector2(5, 4.9736843)
 sprite_frames = SubResource("SpriteFrames_8cac7")
 animation = &"idle"

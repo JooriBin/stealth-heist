@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://cphfhmte4kgjm" path="res://scenes/gold.tscn" id="12_o8fc1"]
 [ext_resource type="PackedScene" uid="uid://x3jqyoc7he8l" path="res://scenes/guard_manager.tscn" id="12_q5onr"]
 [ext_resource type="PackedScene" uid="uid://cp7ulhpkgyiu" path="res://scenes/key.tscn" id="13_xo05s"]
+[ext_resource type="PackedScene" uid="uid://ccim8h2j25qpi" path="res://scenes/ExitDoor.tscn" id="14_xo05s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rwgxs"]
 texture = ExtResource("1_nnsk1")
@@ -3645,6 +3646,7 @@ script = ExtResource("10_e3hyu")
 player_scene = ExtResource("11_q5onr")
 gold_scene = ExtResource("12_o8fc1")
 key_scene = ExtResource("13_xo05s")
+door_scene = ExtResource("14_xo05s")
 
 [node name="GuardManager" parent="." unique_id=1786716502 instance=ExtResource("12_q5onr")]
 guard_count = 10

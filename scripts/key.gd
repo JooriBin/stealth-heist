@@ -15,6 +15,7 @@ func _on_body_entered(body: Node) -> void:
 	monitoring = false
 
 	var gm := _find_game_manager()
+	
 	if gm:
 		gm.set_has_key(true)
 

@@ -4,6 +4,7 @@ extends Node2D
 @export var gold_scene: PackedScene
 @export var key_scene: PackedScene
 @export var gold_count: int = 10
+@export var door_scene: PackedScene
 
 signal coins_changed(value: int)
 signal key_changed(has_key: bool)
@@ -21,7 +22,15 @@ func _ready():
 # --------------------------------------------------
 # SPAWN LOGIC
 # --------------------------------------------------
+func spawn_door(pos: Vector2) -> void:
+	if door_scene == null:
+		push_warning("Door scene not assigned!")
+		return
 
+	var door = door_scene.instantiate()
+	add_child(door)
+	door.global_position = pos
+	
 func spawn_player_and_exit():
 	var floor_layer = get_node("../FloorLayer")
 	var used_cells = floor_layer.get_used_cells()
@@ -37,7 +46,8 @@ func spawn_player_and_exit():
 	player = player_scene.instantiate()
 	add_child(player)
 	player.global_position = spawn_pos
-
+	
+	
 	# Spawn exit far away
 	var exit_cell = get_far_cell(used_cells, spawn_cell)
 	var exit_pos = floor_layer.map_to_local(exit_cell)
@@ -48,6 +58,9 @@ func spawn_player_and_exit():
 
 	# Spawn gold
 	spawn_gold(used_cells)
+	
+	#spawn door
+	spawn_door(exit_pos)   # for testing
 
 
 func get_far_cell(cells: Array, origin):
